@@ -15,6 +15,8 @@ contract ERC20 is IERC20, AccessControl {
     string private _symbol; 
     uint256 private _totalSupply;
     uint256 private _initialAmount;
+    bytes32  public constant ADMIN = keccak256(abi.encodePacked("ADMIN"));
+    bytes32  public constant USER = keccak256(abi.encodePacked("USER"));
 
     constructor(
         string memory name_, 
