@@ -28,7 +28,7 @@ contract ERC20 is IERC20, AccessControl {
         _decimals = decimals_;
         _totalSupply = initialAmount_;
         _balances[msg.sender] += initialAmount_;
-        roles[ADMIN][msg.sender] = true;
+        _grantRole(ADMIN, msg.sender);
     }
 
     function name() public view returns (string memory) {
