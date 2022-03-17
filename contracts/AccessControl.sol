@@ -6,7 +6,7 @@ contract AccessControl {
 
     mapping (bytes32 => mapping(address => bool)) public roles;
 
-    bytes32  constant ADMIN = keccak256(abi.encodePacked("ADMIN"));
+    bytes32  public constant ADMIN = keccak256(abi.encodePacked("ADMIN"));
     bytes32  constant USER = keccak256(abi.encodePacked("USER"));
 
     modifier onlyRole(bytes32 _role){
