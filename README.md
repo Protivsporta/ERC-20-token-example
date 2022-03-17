@@ -3,10 +3,10 @@
 Simple example of ERC-20 token with interface and access control, added additional functions for mint and burn tokens
 
 Contract deployed to Ropsten Network:
-https://ropsten.etherscan.io/address/0x8bF4Dda1a1B042C09041aD71E2BAe3fF1842761b
+https://ropsten.etherscan.io/address/0xA431b8b9D889D9a0F5f4D1F61F73f66C53328c84#code
 
 Contract address:
-0x8bF4Dda1a1B042C09041aD71E2BAe3fF1842761b
+0xA431b8b9D889D9a0F5f4D1F61F73f66C53328c84
 
 Available tasks:
 ``` shell
