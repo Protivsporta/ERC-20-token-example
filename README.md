@@ -1,5 +1,7 @@
 # Simple example of ERC-20 Token emplementation
 
+Simple example of ERC-20 token with interface and access control, added additional functions for mint and burn tokens
+
 Contract deployed to Ropsten Network:
 https://ropsten.etherscan.io/address/0x8bF4Dda1a1B042C09041aD71E2BAe3fF1842761b
 
