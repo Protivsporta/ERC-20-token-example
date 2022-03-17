@@ -113,7 +113,7 @@ describe("ERC20", function() {
         await expect(erc20.connect(sid).grantRole(ADMIN, sid.address)).to.be.revertedWith("not authorized")
     })
 
-    it("Should return error message because Sid don't have ADMIN role and can't grant roles to another accounts", async function() {
+    it("Should return error message because Sid don't have ADMIN role and can't revoke roles from another accounts", async function() {
         await expect(erc20.connect(sid).revokeRole(ADMIN, sid.address)).to.be.revertedWith("not authorized")
     })
 
