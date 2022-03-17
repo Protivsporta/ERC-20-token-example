@@ -17,7 +17,6 @@ Available tasks:
   coverage    	Generates a code coverage report for tests
   flatten     	Flattens and prints contracts and their dependencies
   help        	Prints this message
-  mint        	Create amount of tokens on the address
   node        	Starts a JSON-RPC server on top of Hardhat Network
   run         	Runs a user-defined script after compiling the project
   test        	Runs mocha tests
