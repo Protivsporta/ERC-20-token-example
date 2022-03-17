@@ -1,5 +1,6 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
+const ADMIN = "0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42";
 
 describe("ERC20", function() {
     let owner
@@ -109,26 +110,26 @@ describe("ERC20", function() {
     //Access control contract Unit tests
 
     it("Should return error message because Sid don't have ADMIN role and can't grant roles to another accounts", async function() {
-        await expect(erc20.connect(sid).grantRole("0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42", sid.address)).to.be.revertedWith("not authorized")
+        await expect(erc20.connect(sid).grantRole(ADMIN, sid.address)).to.be.revertedWith("not authorized")
     })
 
     it("Should return error message because Sid don't have ADMIN role and can't grant roles to another accounts", async function() {
-        await expect(erc20.connect(sid).revokeRole("0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42", sid.address)).to.be.revertedWith("not authorized")
+        await expect(erc20.connect(sid).revokeRole(ADMIN, sid.address)).to.be.revertedWith("not authorized")
     })
 
     it("Should grant ADMIN role to Sid account and emit GrantRole event", async function() {
-        await expect(erc20.grantRole("0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42", sid.address))
+        await expect(erc20.grantRole(ADMIN, sid.address))
         .to.emit(erc20, "GrantRole")
-        .withArgs("0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42", sid.address)
+        .withArgs(ADMIN, sid.address)
 
         await expect(() => erc20.connect(sid).mint(sid.address, 300))
         .to.changeTokenBalance(erc20, sid, 300)
     })
 
     it("Should revoke ADMIN role from owner account and emit RevokeRole event", async function() {
-        await expect(erc20.revokeRole("0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42", owner.address))
+        await expect(erc20.revokeRole(ADMIN, owner.address))
         .to.emit(erc20, "RevokeRole")
-        .withArgs("0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42", owner.address)
+        .withArgs(ADMIN, owner.address)
 
         await expect(erc20.mint(owner.address, 300)).to.be.revertedWith("not authorized")
         
